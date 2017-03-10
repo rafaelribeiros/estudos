@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 		color: 'white'		
 	},
 	sectionStyle:{
-		backgroundColor:'#009688'
+		backgroundColor:'#4CD964'
 	}
 });
 

@@ -14,8 +14,8 @@ class TabIcon extends React.Component {
 const RouterComponent = () => {
    return (
    <Router navigationBarStyle={styles.navBar} titleStyle={styles.navBarTitle} >
-       <Scene key="tabbar" tabs >
-          <Scene icon={TabIcon}
+       <Scene key="tabbar" tabs>
+          <Scene icon={TabIcon} 
            component={MoviesList} 
            title="Ver nos cinemas" 
            key="feed_1"
@@ -34,7 +34,7 @@ const RouterComponent = () => {
 
 const styles = StyleSheet.create({
 	navBar: {
-    backgroundColor:'#0D47A1',
+    backgroundColor:'#009688',
 },  
     navbarSpace: {
 		paddingTop: 65,
