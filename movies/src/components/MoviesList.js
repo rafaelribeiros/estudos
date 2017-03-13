@@ -20,7 +20,15 @@ class MoviesList extends Component{
   createDataSource({ movies }){      
       const ds = new ListView.DataSource({
           rowHasChanged: (r1, r2) => r1 !== r2
+      });      
+      this.dataSource = ds.cloneWithRows(movies);   
+  }
+
+  updateDataSource({ movies }){      
+      const ds = new ListView.DataSource({
+          rowHasChanged: (r1, r2) => r1 !== r2
       });
+      console.log(this.dataSource);
       this.dataSource = ds.cloneWithRows(movies);   
   }
 
@@ -28,8 +36,12 @@ class MoviesList extends Component{
        return <ItemMovie movie={movie} />
   }
 
+  renderFooter(){             
+	   return <Spinner size='large' />;	   
+  }
+
   loadMoreMovies(){
-      return console.log('entrou');
+       this.updateDataSource(this.props);   
   }
    
   render(){
@@ -42,7 +54,8 @@ class MoviesList extends Component{
          enableEmptySections         
          dataSource={this.dataSource}  
          renderRow={this.renderRow} 
-         onEndReached={this.loadMoreMovies}     
+         renderFooter={this.renderFooter.bind(this)}
+         onEndReached={this.loadMoreMovies.bind(this)}     
          />
      );
     }  
